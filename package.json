@@ -1,0 +1,13 @@
+{
+  "main": "main.js",
+  "scripts": {
+    "build": "tsc",
+    "package": "npm run build && cp chaincode.package.json dist/package.json && tar --transform 's/^dist/src/' -czf code.tar.gz package.json dist/* && tar -czf chaincode.tar.gz code.tar.gz metadata.json && rm code.tar.gz"
+  },
+  "dependencies": {
+    "fabric-shim": "^2.5.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
